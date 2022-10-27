@@ -11,7 +11,7 @@ jobs:
           ref: ${{ github.ref_name }}
       - name: Hello world action step
         id: hello
-        uses: online-concept-aps/path-tag-bump@1.0.0
+        uses: online-concept-aps/path-tag-bump@v1.0.1
         with:
           who-to-greet: 'Mona the Octocat'
       - name: show tag
