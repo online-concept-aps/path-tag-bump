@@ -1,0 +1,18 @@
+on: [push]
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: '0'
+          ref: ${{ github.ref_name }}
+      - name: Hello world action step
+        id: hello
+        uses: online-concept-aps/path-tag-bump@1.0.0
+        with:
+          who-to-greet: 'Mona the Octocat'
+      - name: show tag
+        run: echo ${{ steps.hello.outputs.time  }}
