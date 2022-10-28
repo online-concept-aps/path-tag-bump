@@ -4,20 +4,20 @@ This action prints "Hello World" or "Hello" + the name of a person to greet to t
 
 ## Inputs
 
-### `who-to-greet`
+### `servicename`
 
-**Required** The name of the person to greet. Default `"World"`.
+**Required** The name of the service to create tag for. Default ``.
 
 ## Outputs
 
-### `time`
+### `new_tag`
 
-The time we greeted you.
+The version number thats granted you.
 
 ## Example usage
 
 ```yaml
-uses: actions/hello-world-javascript-action@v1.1
+uses: online-concept-aps/path-tag-bump@v1.0.1
 with:
-  who-to-greet: 'Mona the Octocat'
+  service-name: 'customer-service'
 ```

@@ -1,13 +1,13 @@
-name: 'Hello World'
+name: 'Path Tag Bump'
 description: 'Greet someone and record the time'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  service-name:  # id of input
+    description: 'The name of the service that need a tag bump'
     required: true
-    default: 'World'
+    default: ''
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  new_tag: # id of output
+    description: 'The version tag that is granted for the service'
 runs:
   using: 'node16'
   main: 'index.js'
