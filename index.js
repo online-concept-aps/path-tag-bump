@@ -26,7 +26,7 @@ try {
     "tagger.name": "GitHub Actions",
     "tagger.email": context.payload.repository.owner.email
   })
-
+  console.log("created: " + JSON.stringify(createdTag));
 
   const tags = octokit.repos.listTags({
     owner: context.payload.repository.owner.login,
