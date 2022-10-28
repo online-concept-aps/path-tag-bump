@@ -14,6 +14,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
         with:
-          tag-name: 'customer'
+          tag_name: 'customer'
 #      - name: show tag
 #        run: echo "the new tag is ${{ steps.pathtagbump.outputs.new-tag  }}"
