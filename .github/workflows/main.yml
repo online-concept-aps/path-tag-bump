@@ -5,18 +5,17 @@ jobs:
     runs-on: ubuntu-latest
     name: Path Tag Bump
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
         with:
           fetch-depth: '0'
           ref: ${{ github.ref_name }}
-      - name: Path Tag Bump
-        id: pathtagbump
-        uses: online-concept-aps/path-tag-bump@1.0.20
+      - name: Install deps and build
+        run: npm ci && npm run build
+      - uses: JasonEtco/build-and-tag-action@v2
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
         with:
-          service-name: 'customer-service'
-          initial-version: '1.0.0'
-          tag-name: 'customer-service'
+          tag-name: 'customer'
 #      - name: show tag
 #        run: echo "the new tag is ${{ steps.pathtagbump.outputs.new-tag  }}"
