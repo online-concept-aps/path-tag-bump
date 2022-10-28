@@ -23161,14 +23161,6 @@ try {
 
 /***/ }),
 
-/***/ 7247:
-/***/ ((module) => {
-
-module.exports = eval("require")("./create-or-update-ref");
-
-
-/***/ }),
-
 /***/ 2874:
 /***/ ((module) => {
 
@@ -23455,9 +23447,38 @@ var lib = __nccwpck_require__(449);
 // EXTERNAL MODULE: ./node_modules/semver/index.js
 var semver = __nccwpck_require__(3666);
 var semver_default = /*#__PURE__*/__nccwpck_require__.n(semver);
-// EXTERNAL MODULE: ../../../Users/malka/AppData/Roaming/npm/node_modules/@vercel/ncc/dist/ncc/@@notfound.js?./create-or-update-ref
-var _notfoundcreate_or_update_ref = __nccwpck_require__(7247);
-var _notfoundcreate_or_update_ref_default = /*#__PURE__*/__nccwpck_require__.n(_notfoundcreate_or_update_ref);
+;// CONCATENATED MODULE: ./lib/create-or-update-ref.js
+async function createOrUpdateRef(
+    tools,
+    sha,
+    tagName
+) {
+    const refName = `tags/v${tagName}`
+    tools.log.info(`Updating major version tag ${refName}`)
+    const { data: matchingRefs } = await tools.github.git.listMatchingRefs({
+        ...tools.context.repo,
+        ref: refName
+    })
+
+    const matchingRef = matchingRefs.find((refObj) => {
+        return refObj.ref.endsWith(refName)
+    })
+
+    if (matchingRef !== undefined) {
+        await tools.github.git.updateRef({
+            ...tools.context.repo,
+            force: true,
+            ref: refName,
+            sha
+        })
+    } else {
+        await tools.github.git.createRef({
+            ...tools.context.repo,
+            ref: `refs/${refName}`,
+            sha
+        })
+    }
+}
 // EXTERNAL MODULE: external "fs"
 var external_fs_ = __nccwpck_require__(7147);
 var external_fs_default = /*#__PURE__*/__nccwpck_require__.n(external_fs_);
@@ -23581,8 +23602,8 @@ async function buildAndTagAction(tools) {
     if (shouldRewriteMajorAndMinorRef) {
         const majorStr = semver_default().major(tagName).toString()
         const minorStr = semver_default().minor(tagName).toString()
-        await _notfoundcreate_or_update_ref_default()(tools, commit.sha, `${majorStr}.${minorStr}`)
-        return _notfoundcreate_or_update_ref_default()(tools, commit.sha, majorStr)
+        await createOrUpdateRef(tools, commit.sha, `${majorStr}.${minorStr}`)
+        return createOrUpdateRef(tools, commit.sha, majorStr)
     }
 }
 ;// CONCATENATED MODULE: ./index.js
