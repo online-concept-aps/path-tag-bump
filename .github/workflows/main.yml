@@ -11,8 +11,9 @@ jobs:
           ref: ${{ github.ref_name }}
       - name: Path Tag Bump
         id: pathtagbump
-        uses: online-concept-aps/path-tag-bump@1.0.6
+        uses: online-concept-aps/path-tag-bump@1.0.7
         with:
           service-name: 'customer-service'
+          initial-version: '1.0.0'
       - name: show tag
         run: echo "The time was ${{ steps.pathtagbump.outputs.new-tag  }}"

@@ -9690,8 +9690,9 @@ const github = __nccwpck_require__(1049);
 try {
   // `who-to-greet` input defined in action metadata file
   const serviceName = core.getInput('service-name');
+  const initialVersion = core.getInput('initial-version');
   console.log(`The service name is ${serviceName}!`);
-  const newTag = "1.0.1";
+  const newTag = initialVersion;
   core.setOutput("new-tag", newTag);
   // Get the JSON webhook payload for the event that triggered the workflow
   const payload = JSON.stringify(github.context.payload, undefined, 2)
