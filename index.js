@@ -15,6 +15,19 @@ try {
   });
 
 //  const { data: { test } } = octokit.repos.getReleaseByTag();
+  //Create a tag
+  const createdTag = octokit.rest.git.createTag({
+    owner: context.payload.repository.owner.login,
+    repo: context.payload.repository.name,
+    tag:serviceName,
+    message:"New version",
+    object: {}, //sha of the commit
+    type:"commit",
+    "tagger.name": "GitHub Actions",
+    "tagger.email": context.payload.repository.owner.email
+  })
+
+
   const tags = octokit.repos.listTags({
     owner: context.payload.repository.owner.login,
     repo: context.payload.repository.name,
