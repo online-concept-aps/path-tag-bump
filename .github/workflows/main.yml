@@ -11,7 +11,7 @@ jobs:
           ref: ${{ github.ref_name }}
       - name: Path Tag Bump
         id: pathtagbump
-        uses: online-concept-aps/path-tag-bump@1.0.3
+        uses: online-concept-aps/path-tag-bump@1.0.4
         with:
           service-name: 'customer-service'
       - name: show tag
