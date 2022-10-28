@@ -10,4 +10,4 @@ outputs:
     description: 'The version tag that is granted for the service'
 runs:
   using: 'node16'
-  main: 'index.js'
+  main: 'dist/index.js'
