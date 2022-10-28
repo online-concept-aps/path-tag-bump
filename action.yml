@@ -1,12 +1,12 @@
 name: 'Path Tag Bump'
-description: 'Greet someone and record the time'
+description: 'Create a new tag based on the path of the changed files'
 inputs:
   service-name:  # id of input
     description: 'The name of the service that need a tag bump'
     required: true
     default: ''
 outputs:
-  new_tag: # id of output
+  new-tag: # id of output
     description: 'The version tag that is granted for the service'
 runs:
   using: 'node16'

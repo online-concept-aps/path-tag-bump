@@ -6,7 +6,7 @@ try {
   const serviceName = core.getInput('service-name');
   console.log(`The service name is ${serviceName}!`);
   const newTag = "1.0.1";
-  core.setOutput("new_tag", newTag);
+  core.setOutput("new-tag", newTag);
   // Get the JSON webhook payload for the event that triggered the workflow
   const payload = JSON.stringify(github.context.payload, undefined, 2)
   console.log(`The event payload: ${payload}`);

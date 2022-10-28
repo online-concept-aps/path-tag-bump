@@ -3,16 +3,16 @@ on: [push]
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Path Tag Bump
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: '0'
           ref: ${{ github.ref_name }}
       - name: Path Tag Bump
-        id: hello
+        id: pathtagbump
         uses: online-concept-aps/path-tag-bump@1.0.2
         with:
           service-name: 'customer-service'
       - name: show tag
-        run: echo "The time was ${{ steps.hello.outputs.new_tag  }}"
+        run: echo "The time was ${{ steps.pathtagbump.outputs.new-tag  }}"
