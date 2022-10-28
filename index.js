@@ -1,5 +1,5 @@
 const core = require('@actions/core');
-const {Github, context} = require('@actions/github');
+const {GitHub, context} = require('@actions/github');
 
 try {
   // `who-to-greet` input defined in action metadata file

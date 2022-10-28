@@ -9685,7 +9685,7 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 const core = __nccwpck_require__(2532);
-const {Github, context} = __nccwpck_require__(1049);
+const {GitHub, context} = __nccwpck_require__(1049);
 
 try {
   // `who-to-greet` input defined in action metadata file
