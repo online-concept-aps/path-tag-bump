@@ -9,10 +9,10 @@ jobs:
         with:
           fetch-depth: '0'
           ref: ${{ github.ref_name }}
-      - name: Hello world action step
+      - name: Path Tag Bump
         id: hello
-        uses: online-concept-aps/path-tag-bump@v1.0.1
+        uses: online-concept-aps/path-tag-bump@v1.0.2
         with:
-          who-to-greet: 'Mona the Octocat'
+          service-name: 'customer-service'
       - name: show tag
-        run: echo "The time was ${{ steps.hello.outputs.time  }}"
+        run: echo "The time was ${{ steps.hello.outputs.new_tag  }}"
