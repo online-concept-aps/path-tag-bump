@@ -11,11 +11,12 @@ jobs:
           ref: ${{ github.ref_name }}
       - name: Path Tag Bump
         id: pathtagbump
-        uses: online-concept-aps/path-tag-bump@1.0.17
+        uses: online-concept-aps/path-tag-bump@1.0.18
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           service-name: 'customer-service'
           initial-version: '1.0.0'
-      - name: show tag
-        run: echo "the new tag is ${{ steps.pathtagbump.outputs.new-tag  }}"
+          tag-name: 'customer-service'
+#      - name: show tag
+#        run: echo "the new tag is ${{ steps.pathtagbump.outputs.new-tag  }}"
