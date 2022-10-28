@@ -15,5 +15,5 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         with:
           tag_name: 'customer'
-#      - name: show tag
+#      - name: show tag what
 #        run: echo "the new tag is ${{ steps.pathtagbump.outputs.new-tag  }}"
