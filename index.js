@@ -19,6 +19,8 @@ try {
     owner: context.payload.repository.owner.login,
     repo: context.payload.repository.name,
   });
+  console.log(context.payload.repository.owner.login)
+  console.log(context.payload.repository.name)
   console.log(JSON.stringify(tags))
 
   
